@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bob Pepper</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/style1.css" />
+    <link rel="stylesheet" href="../css/style2.css" />
+    <script src="funcoes.js"></script>
+
+    <link rel="icon" href="../img/logo.png" type="imagem-x/icon">
+</head>
+
+<body>
+    <nav role="navigation">
+        <div id="menuToggle">
+            <!--checkbox escondida para se selecionar o menu hamburguer e ter o efeito de "abrir"-->
+            <input type="checkbox" />
+
+            <span></span>
+            <!--Area para criar o menu hamburguer esses spans serão utilizados para a estilização-->
+            <span></span>
+            <span></span>
+
+
+            <ul id="menu">
+                <!--  criação da lista para os items do menu -->
+                <li>
+                    Olá, <b id="b_usuario"></b>
+                </li>
+
+                <a href="grafico-chartjs.html">
+                    <li><img src="../img/temperatura.png" class="icone"> Gráfico principal</li>
+                </a>
+
+                <a href="cadastro-plantio.html">
+                    <li><img src="../img/planta.png" class="icone"> Cadastro de Plantio</li>
+                </a>
+
+                <a href="registros-temp.html">
+                    <li><img src="../img/temperatura.png" class="icone"> Registros de Temperatura</li>
+                </a>
+
+                <a href="#" onclick="logoff()">
+                    <li><img src="../img/sair.png" class="icone"> Sair</li>
+                </a>
+
+                <img src="../img/logo.png" width='50%' alt="" class="logo">
+            </ul>
+        </div>
+    </nav>
+
+    <div class="formulario">
+        <div class="container">
+            <form>
+                <h1 class="form-style-1 form-style-2">Cadastro de plantio</h1> <br>
+                <hr>
+
+                <div class="middlebox">
+                    <ul class="form-style-1 form-style-2">
+                        <li>
+                            <label for="dtnasc">Data da plantação<span class="required">*</span></label>
+                            <input id="dtnasc" class="field-divided" type="date" placeholder="mm/dd/aaaa" required>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="rightbox">
+                    <ul class="form-style-1 form-style-2">
+                        <li>
+                            <label for="estado_end"> Tipo De Pimenta <span class="required">*</span></label>
+                            <select id="estado_end" class="field-divided" required>
+                                <option selected disabled value="">Escolha o tipo de pimenta...</option>
+                                <option value="biquinho">Biquinho</option>
+                                <option value="bode">Bode</option>
+                                <option value="cambuci">Cambuci</option>
+                                <option value="cumari-do-para">Cumari do Para</option>
+                                <option value="cumari-verdadeira">Cumari Verdadeira</option>
+                                <option value="dedo-de-moca">Dedo de Moça</option>
+                                <option value="habanero">Habanero</option>
+                                <option value="jalapeno">Jalapeno</option>
+                                <option value="malagueta">Malagueta</option>
+                                <option value="murupi">Murupi</option>
+                                <option value="paprica">Paprica</option>
+                                <option value="tabasco">Tabasco</option>
+                            </select>
+                        </li>
+                    </ul>
+                </div>
+
+                <hr>
+                <div class="btn-enviar">
+                    <button class="btn first">Enviar</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
+
+<script>
+
+verificar_autenticacao();
+
+</script>

@@ -1,0 +1,103 @@
+create table Especie_Pimenta (
+ID_Especie int primary key identity,
+Nome_Pimenta varchar(20),
+Grupo varchar(45),
+temperatura_maxima int,
+temperatura_minima int
+);
+
+create table Agricultor(
+ID_Agricultor int primary key identity,
+Nome varchar(50),
+Sexo char(1),
+Telefone_fixo numeric(10),
+Celular numeric(11),
+CPF varchar(11),
+Email varchar(40),
+Senha varchar(40),
+CEP varchar(8),
+Numero numeric(5),
+Bairro varchar(40),
+Logradouro varchar(50),
+Cidade varchar(40),
+Complemento varchar(40),
+Estado varchar(2)
+);
+
+create table Estufa (
+ID_Estufa int primary key identity,
+data_plantio date,
+Fk_Agricultor int,
+foreign key(Fk_Agricultor) references Agricultor(ID_Agricultor),
+Fk_Especie int,
+foreign key(Fk_Especie) references Especie_pimenta(ID_Especie)
+);
+ 
+create table Sensor (
+ID_Sensor int primary key identity,
+FK_estufa int,
+foreign key (FK_estufa) references estufa(ID_estufa),
+Nome_sensor varchar(20)
+);
+
+create table Eventos_Sensor (
+ID_Evento int primary key identity,
+Fk_Sensor int,
+foreign key (Fk_Sensor) references Sensor(ID_Sensor),
+momento datetime,
+Temperatura numeric
+);
+
+insert into Especie_Pimenta values 
+('Jalapeno' , 'Capsicum Annuum','21','30'),
+('Páprica' , 'Capsicum Annuum','21','30'),
+('Bode' , 'Capsicum Chinense','21','30'),
+('Biquinho' , 'Capsicum Chinense','21','30'),
+('Cumari-do-Pará' , 'Capsicum Chinense','21','30'),
+('Habareno' , 'Capsicum Chinense','21','30'),
+('Murupi' , 'Capsicum Chinense','21','30'),
+('Dedo-de-Moça' , 'Capsicum Baccatum','18','35'),
+('Cambuci' , 'Capsicum Baccatum','18','35'),
+('Cumari Verdadeira' , 'Capsicum Baccatum','18','35'),
+('Malagueta' , 'Capsicum Frutescens','21','30'),
+('Tabasco' , 'Capsicum Frutescens','21','30');
+
+
+insert into Agricultor values
+('Eduardo Silva','m','1142007859','11963214558','12236985235','agricultor@hotmail.com','123456789','05611230','85','Bela Vista','Avenida Paulista','São Paulo','Masp','SP'),
+('Luiz Gustavo','m','1136857859','11952369587','21364598631','luizgustavo@gmail.com','senha123','52369587','1002','Guarulhos','Rua Caju','São Paulo','Hospital','SP'),
+('Gabriel Santos','m','1135659632','11985369512','45632155512','gabrielsantos@outlook.com','gabriel123','15263894','852','Alphaville','Rua Final','São Paulo','Estádio','SP'),
+('Giovanna Souza','f','1140012356','11987459632','96523150123','giovannasouza@bandtec.com','giovanna123','85463259','561','Osasco','Rua Rio','São Paulo','Campo','SP'),
+('Matheus Jesus','m','1135869532','11975412569','45682135687','omatheusjesus@gmail.com','matheus123','02563256','1235','Aricanduva','Rua 7','São Paulo','Poste','SP'),
+('Maria Aparecida','f','1136918804','11989562314','96325415689','mariaaparecida@uol.com','maria123','95135784','5521','Interlago','Rua Sargentos','São Paulo','Batalhão','SP'),
+('Guilherme Jesus','m','1135212355','11918259623','02135896341','Guilhermejesus@hotmail.com','guilherme123','96325874','1','Campo Limpo','Rua Cuevas','São Paulo','Sargentos','SP');
+
+
+insert into Estufa values
+('2020-01-23','1','1'),
+('2020-02-10','2','2'),
+('2020-03-23','3','3'),
+('2020-04-27','4','4'),
+('2020-05-21','5','5'),
+('2020-06-10','6','6'),
+('2020-06-11','7','7');
+
+
+insert into sensor values
+(1,'A1'),
+(2,'A2'),
+(3,'A3'),
+(4,'A4'),
+(5,'A5'),
+(6,'A6'),
+(7,'A7');
+
+INSERT INTO Eventos_Sensor VALUES
+(1,'2020-02-20 06:00:00','23.11'),
+(2,'2020-10-25 07:00:00','20.20'),
+(3,'2019-08-15 08:00:00','17.45'),
+(4,'2020-06-10 09:00:00','19.35'),
+(5,'2020-09-28 10:00:00','30.12'),
+(6,'2020-12-10 11:00:00','19.10'),
+(7,'2020-10-03 12:00:00','24.35');
+

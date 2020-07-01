@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bob Pepper</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/style1.css">
+    <link rel="icon" href="img/logo.png" type="image-x/icon">
+    <script src="js/funcoes.js"></script>
+</head>
+
+<body class="fundao">
+    <div class="header">
+        <div class="container">
+            <div>
+                <img class="titulo" src="img/logo.png" width="80px">
+                <h1 class="titulo"><span>Bob</span> Pepper</h1>
+            </div>
+            <div class="nav">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="financeiro.html">Financeiro</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="assuntos-bottom">
+        <div class="formulario">
+          <h3>Digite a área em metros quadrados para simular a compra de nosso produto</h3>
+
+          <ul class="form-style-1">
+            <li>
+              <input id="valorteste" class="large-field" required >
+            </li>
+          </ul>
+
+          <h3>Planos</h3>
+          <br>
+            <button class="btn" onclick="mensal()">Mensal</button> 
+            <button class="btn" onclick="semestral()">Semestral</button>           
+            <button class="btn" onclick="anual()">Anual</button> 
+          <div id="mostrareais"></div>
+        </div>
+    </div>
+  <div class="footer">
+    <p>Copyright © 2020 | OportunnIT</p>
+  </div>
+</body>
+</html>

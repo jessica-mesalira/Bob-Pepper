@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bob Pepper</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/style1.css" />
+    <link rel="icon" href="img/logo.png" type="imagem-x/icon">
+    <script src="./js/validacoes.js"></script>
+</head>
+
+<body class="fundao">
+    <div class="header">
+        <div class="container">
+            <div>
+                <img class="titulo" src="img/logo.png" width="80px">
+                <h1 class="titulo"><span>Bob</span> Pepper</h1>
+            </div>
+            <div class="nav">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="financeiro.html">Financeiro</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="formulario">
+        <div class="container">
+            <div class="login">
+                <form id="form_login" method="post" onsubmit="return teste_login();">
+                    <img src="img/logo.png" width="80px" class="logo-login">
+
+
+                    <ul class="form-style-1">
+                        <li>
+                            <label for="email">Email</label>
+                            <input type="text" name="login" id="email_usu" class="large-field" placeholder="exemplo@bobpepper.com" />
+                        </li>
+                    </ul>
+
+                    <ul class="form-style-1">
+                        <li>
+                            <label for="senha">Senha</label>
+                            <input type="password" name="senha" id="senha_usu" class="large-field" placeholder="Senha" />
+                        </li>
+                    </ul>
+                    <br>
+                    <div class="btn-enviar">
+                        <button class="btn first" type="submit" id="btn_entrar">Logar</button>
+                    </div>
+
+                    Não possui Cadastro? <a href="cadastro.html">Cadastre-se!</a>
+
+                </form>
+                <img src="aguarde.gif" id="img_aguarde" style="display: none;">
+    
+    <div id="div_erro" style="background-color: sandybrown; color: maroon; display: none;">
+        
+    </div>
+            </div>
+        </div>
+    </div>
+                    
+    <div>
+        <ul id="mensagemErro" class="m-erro2"></ul>
+    </div>
+
+    <div class="footer">
+        <p>Copyright © 2020 | OportunnIT</p>
+    </div>
+</body>
+</html>
+<script>
+
+    function entrar() {
+        
+        var formulario = new URLSearchParams(new FormData(form_login));
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            body: formulario
+        }).then(resposta => {
+            
+            if (resposta.ok)
+            {
+                resposta.json().then(json => {
+
+                    sessionStorage.login_usuario_meuapp = json.Email;
+                    sessionStorage.nome_usuario_meuapp = json.Nome;
+                    sessionStorage.setItem('Email',json.Email);
+                    
+                    window.location.href = 'grafico-chartjs.html';
+                });
+
+            } 
+            else 
+            {
+
+                console.log('Erro de login!');
+
+                alert('Erro no login ou senha!');
+
+                response.text().then(texto => {
+                    console.error(texto);
+                    //finalizar_aguardar(texto);
+                });
+            }
+        });
+
+        return false;
+    }
+
+</script>

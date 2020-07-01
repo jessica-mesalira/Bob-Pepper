@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Registros</title>
+
+    <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/style1.css" />
+    <link rel="stylesheet" href="./css/style2.css" />
+    <link rel="stylesheet" href="./css/graficos.css" />
+    <script type="text/javascript" src="funcoes.js"></script>
+
+
+</head>
+
+<body class="corpo" onload="atualizarGrafico();">
+    <nav role="navigation">
+        <div id="menuToggle">
+            <!--checkbox escondida para se selecionar o menu hamburguer e ter o efeito de "abrir"-->
+            <input type="checkbox" />
+
+            <span></span>
+            <!--Area para criar o menu hamburguer esses spans serão utilizados para a estilização-->
+            <span></span>
+            <span></span>
+
+
+            <ul id="menu">
+                <!--  criação da lista para os items do menu -->
+                <li>
+                    Olá, <b id="b_usuario"></b>
+                </li>
+
+                <a href="grafico-chartjs.html">
+                    <li><img src="../img/temperatura.png" class="icone"> Gráfico principal</li>
+                </a>
+
+                <a href="cadastro-plantio.html">
+                    <li><img src="../img/planta.png" class="icone"> Cadastro de Plantio</li>
+                </a>
+
+                <a href="registros-temp.html">
+                    <li><img src="../img/temperatura.png" class="icone"> Registros de Temperatura</li>
+                </a>
+
+                <a href="#" onclick="logoff()">
+                    <li><img src="../img/sair.png" class="icone"> Sair</li>
+                </a>
+
+                <img src="../img/logo.png" width='50%' alt="" class="logo">
+            </ul>
+        </div>
+    </nav>
+
+    <div class="content">
+        <div class="container">
+            <div class="estatistica">
+
+                <div class="alertas2 min">
+                    <p>Menor temperatura</p>
+                    <p id="temp_minima_historico" class="valores_temp">Carregando...</p>
+                </div>
+                <div class="alertas2 med">
+                    <p>Média de temperatura</p>
+                    <p id="temp_med_historico" class="valores_temp">Carregando...</p>
+                </div>
+                <div class="alertas2 max">
+                    <p>Maior temperatura:</p>
+                    <p id="temp_max_historico" class="valores_temp">Carregando...</p>
+                </div>
+            </div>
+            <div class="temperatura_e_foto">
+                <div class="ultimos_registros">
+                    <h2>Ultimas temperaturas:</h2>
+                    <b>
+                        <p id="mensagem" class="texto_alerta">
+                            Carregando...
+                        </p>
+                    </b>
+                </div>
+                <div class="ultimos_registros2">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<script>
+    window.onload = pega_estat(); obterDadosGrafico();
+    verificar_autenticacao();
+    function pega_estat() {
+        const login_teste = sessionStorage.Email;
+        fetch(`/leituras/estatisticas/${login_teste}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (temperatura_tipos) {
+
+                    console.log(`Dados recebidos: ${JSON.stringify(temperatura_tipos)}`);
+
+                    temp_max_historico.innerHTML = `${temperatura_tipos.temp_maxima}°C`;
+                    temp_minima_historico.innerHTML = `${temperatura_tipos.temp_minima}°C`;
+                    temp_med_historico.innerHTML = `${(temperatura_tipos.temp_media).toFixed(1)}°C`;
+
+
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+                setTimeout(atualizarGrafico, 5000);
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
+
+    let dados = [];
+
+    function obterDadosGrafico() {
+        const login_teste = sessionStorage.Email;
+        fetch(`/leituras/ultimas/${login_teste}`, { cache: 'no-store' }).then(function (response) {
+            mensagem.innerHTML = ``;
+            if (response.ok) {
+                response.json().then(function (resposta) {
+
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+
+                    resposta.reverse();
+
+                    for (i = 0; i < resposta.length; i++) {
+                        var registro = resposta[i];
+                        dados.push(registro.Temperatura);
+                        mensagem.innerHTML += `${dados[i]}ºC<br>`;
+                    }
+
+                    console.log(JSON.stringify(resposta));
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+
+    }
+</script>

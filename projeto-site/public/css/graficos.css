@@ -1,0 +1,125 @@
+.alertas{
+
+    width: 45%;
+    height: 300px;
+    background-color: rgb(255, 217, 147);
+    float: left;
+    margin: 30px 10px;
+    margin-left: -10%;
+    border-bottom: orange 5px solid;
+    text-align: justify;
+    padding: 10px 20px;
+  
+  }
+
+  .alertas2{
+    display: inline-block;
+    width: 30%;
+    margin: 5px;
+    margin-bottom: 25px;
+    height: 130px;
+    color: black;
+    
+  }
+
+
+  .min {
+    background-color: #0098acc7;
+    background-image: url(../img/frio-2.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+  .max {
+    background-color: #ff4842c7;
+    background-image: url(../img/quente-2.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+  .med {
+    background-color: #669D3Cc7;
+    background-image: url(../img/medio-2.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+  
+  .estatistica{
+    color: white;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .valores_temp{
+    font-weight: bold;
+    font-size: larger;
+  }
+
+.temperatura_e_foto{
+  width: 100%;
+  display: inline-flex;
+}
+
+  .temperatura_e_alerta{
+  
+    width: 44%;
+    height: 100px;
+    background-color: rgb(255, 217, 147);
+    margin: 30px 10px;
+    margin-left: -10%;
+    border-bottom: orange 5px solid;
+    text-align: justify;
+    padding: 10px 20px;
+  
+  }
+  
+  .ultimos_registros{
+  
+    width:44%;
+    height: 300px;
+    background-color:orange;
+    margin-left: 3.75%;
+    text-align: center;
+    
+  }
+  .ultimos_registros2{
+  
+    width:45%;
+    height: 300px;
+    margin-left: 3.75%;
+    background-image: url(../img/logo.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    text-align: center;
+    
+  }
+
+  .grafico_principal{
+  
+      width: 60%;
+      height: 485px;
+      background-color: rgb(255, 217, 147);
+      float: right;
+      margin-top: -15.8%;
+      margin-bottom: 5%;
+      margin-right: -10%;
+      border-bottom: orange 5px solid;
+      text-align: justify;
+      padding: 10px 20px;
+    
+  }
+
+  .texto_alerta{
+
+    font-size: larger;
+    text-align: center;
+
+  }
+
+  .container h1{
+  color: black;
+  }
+  
+  

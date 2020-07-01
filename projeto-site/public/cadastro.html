@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bob Pepper</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/style1.css" />
+
+    <link rel="icon" href="./img/logo.png" type="imagem-x/icon">
+</head>
+
+<body>
+    <div class="header">
+        <div class="container">
+            <div>
+                <img class="titulo" src="./img/logo.png" width="80px">
+                <h1 class="titulo"><span>Bob</span> Pepper</h1>
+            </div>
+            <div class="nav">
+                <ul>
+                    <li><a href="./index.html">Inicio</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="financeiro.html">Financeiro</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="formulario form-style-1">
+
+        <div>
+            <ul id="mensagemErro" class="m-erro"></ul>
+        </div>
+
+        <div class="container">
+            <form id="form_cadastro" method="post" onsubmit="return enviaContatoProBanco()">
+                <h1 class="container-form">Cadastro de Usuários</h1> <br>
+
+                <hr>
+
+                <div class="leftbox">
+                    <ul class="form-style-1">
+                        <li>
+                            <label for="nome">Nome <span class="required">*</span></label>
+                            <input type="text" name="nome" id="nome" class="field-divided" placeholder="Nome" />
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="middlebox">
+                    <ul class="form-style-1">
+                        <li>
+                            <label for="snome">Sobrenome <span class="required">*</span></label>
+                            <input type="text" name="snome" id="snome" class="field-divided" placeholder="Sobrenome" />
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="rightbox">
+                    <ul class="form-style-1">
+                        <li>
+                            <label for="cpf">CPF <span class="required">*</span></label>
+                            <input type="text" name="cpf" id="cpf" class="field-divided" placeholder="CPF" />
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="leftbox">
+                    <ul class="form-style-1">
+                        <li>
+                            <label for="sexo">Sexo <span class="required">*</span></label>
+                            <input type="radio" id="sexo" value="f" name="sexo"> Feminino
+                            <input type="radio" id="sexo" value="m" name="sexo"> Masculino
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="middlebox">
+                    <ul class="form-style-1">
+                        <li>
+                            <label for="telefone">Telefone fixo</label>
+                            <input name="telefone" class="field-divided" id="telefone" type="number"
+                                placeholder="Telefone">
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="rightbox">
+                    <ul class="form-style-1">
+                        <li>
+                            <label for="celular">Celular</label>
+                            <input name="celular" class="field-divided" id="celular" type="number"
+                                placeholder="Celular">
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="leftbox">
+                    <ul class="form-style-1">
+                        <li>
+                            <label for="dtnasc">Data de Nascimento <span class="required">*</span></label>
+                            <input name="dtnasc" class="field-divided" id="dtnasc" type="date" placeholder="dd/mm/aaa">
+                        </li>
+                    </ul>
+                </div>
+
+                <hr>
+
+                <div class="leftbox-tiny">
+                    <ul class="form-style-1">
+                        <li>
+                            <label for="cep_end">CEP <span class="required">*</span></label>
+                            <input type="number" class="tiny-field" id="cep_end" name="cep_end" placeholder="00000-000">
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="middlebox-large">
+                    <ul class="form-style-1">
+                        <li>
+                            <label for="endereco">Endereço <span class="required">*</span></label>
+                            <input type="text" class="endereco-style" id="endereco" name="endereco"
+                                placeholder="Endereço">
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="leftbox-tiny">
+                    <ul class="form-style-1">
+                        <li>
+                            <label for="numero_end">Número <span class="required">*</span></label>
+                            <input type="number" class="tiny-field" id="numero_end" name="numero_end"
+                                placeholder="Número">
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="leftbox">
+                    <ul class="form-style-1">
+                        <li>
+                            <label for="complemento_end">Complemento</label>
+                            <input type="text" class="field-divided" id="complemento_end" name="complemento_end"
+                                placeholder="Bloco, casa A, etc">
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="middlebox">
+                    <ul class="form-style-1">
+                        <li>
+                            <label for="bairro_end">Bairro <span class="required">*</span></label>
+                            <input type="text" class="field-divided" id="bairro_end" name="bairro_end"
+                                placeholder="Bairro">
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="rightbox">
+                    <ul class="form-style-1">
+                        <li>
+                            <label for="cidade_end">Cidade <span class="required">*</span></label>
+                            <input type="text" class="field-divided" id="cidade_end" name="cidade_end"
+                                placeholder="Cidade">
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="leftbox">
+                    <ul class="form-style-1">
+                        <li>
+                            <label for="estado_end">Estado <span class="required">*</span></label>
+                            <select name="estado_end" id="estado_end" class="field-divided">
+                                <option selected disabled value="">Escolha um estado...</option>
+                                <option value="AC">AC</option>
+                                <option value="AL">AL</option>
+                                <option value="AM">AM</option>
+                                <option value="AP">AP</option>
+                                <option value="BA">BA</option>
+                                <option value="CE">CE</option>
+                                <option value="DF">DF</option>
+                                <option value="ES">ES</option>
+                                <option value="GO">GO</option>
+                                <option value="MA">MA</option>
+                                <option value="MT">MT</option>
+                                <option value="MS">MS</option>
+                                <option value="MG">MG</option>
+                                <option value="PA">PA</option>
+                                <option value="PB">PB</option>
+                                <option value="PR">PR</option>
+                                <option value="PE">PE</option>
+                                <option value="PI">PI</option>
+                                <option value="RJ">RJ</option>
+                                <option value="RN">RN</option>
+                                <option value="RS">RS</option>
+                                <option value="RO">RO</option>
+                                <option value="RR">RR</option>
+                                <option value="SC">SC</option>
+                                <option value="SP">SP</option>
+                                <option value="SE">SE</option>
+                                <option value="TO">TO</option>
+                            </select>
+                        </li>
+                    </ul>
+                </div>
+
+                <hr>
+
+                <div class="large-field">
+                    <ul class="form-style-1">
+                        <li>
+                            <label for="email">Email <span class="required">*</span></label>
+                            <input type="email" name="email" id="email" class="large-field"
+                                placeholder="exemplo@bobpepper.com" />
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="large-field">
+                    <ul class="form-style-1">
+                        <li>
+                            <label for="senha">Senha <span class="required">*</span></label>
+                            <input type="password" name="senha" id="senha" class="large-field" placeholder="Senha" />
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="btn-enviar">
+                    <button type="submit" class="btn first">Enviar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Copyright © 2020 | OportunnIT</p>
+    </div>
+</body>
+
+</html>
+<script>
+
+
+    function enviaContatoProBanco() {
+        event.preventDefault();
+        var erros = validaContato(erros);
+        mensagemErro.innerHTML = "";
+
+        if (erros.length > 0) {
+            for (var i = 0; i < erros.length; i++) {
+                var erro = erros[i];
+                var li = document.createElement("li");
+                li.innerHTML = erro;
+                mensagemErro.appendChild(li);
+            }
+        } else {
+            return cadastrar();
+        }
+
+
+        function cadastrar() {
+            debugger;
+            var formulario = new URLSearchParams(new FormData(form_cadastro));
+            fetch("/usuarios/cadastrar", {
+                method: "POST",
+                body: formulario
+            }).then(function (response) {
+
+                if (response.ok) {
+                    window.location.href = 'login.html';
+                }
+                else {
+                    console.log('Erro de cadastro!');
+                    response.text().then(function (resposta) {
+                        div_erro.innerHTML = resposta;
+                    });
+                }
+            });
+
+            return false;
+        }
+
+
+    }
+
+    function validaContato() {
+        var erros = [];
+
+        if (!nome.value) {
+            erros.push("Preencher Nome!");
+        }
+
+        if (!snome.value) {
+            erros.push("Preencher Sobrenome!");
+        }
+
+        if (!cpf.value) {
+            erros.push("Preencher CPF!");
+        }
+
+        // if(!sexo.value){
+        //   erros.push("Preencher Sexo!");
+        // }
+
+        if (!dtnasc.value) {
+            erros.push("Preencher Data de nascimento!");
+        }
+
+        if (!cep_end.value) {
+            erros.push("Preencher CEP!");
+        }
+
+
+        if (!endereco.value) {
+            erros.push("Preencher endereço!");
+        }
+
+
+        if (!numero_end.value) {
+            erros.push("Preencher número!");
+        }
+
+
+        if (!bairro_end.value) {
+            erros.push("Preencher bairro!");
+        }
+
+        if (!cidade_end.value) {
+            erros.push("Preencher cidade!");
+        }
+
+        if (!email.value ||
+            (email.value.search("@") == -1) ||
+            (email.value.search(".") == -1) ||
+            (email.value.search(" ") >= '')) {
+            erros.push("O formato do email é: usuario@dominio.com");
+        }
+
+        if (!senha.value) {
+            erros.push("Preencher senha!");
+        }
+
+        return erros;
+
+    }
+
+</script>
